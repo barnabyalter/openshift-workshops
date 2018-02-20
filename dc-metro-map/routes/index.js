@@ -8,10 +8,11 @@ var rest = require('restler');
 var API_KEY_PLACEHOLDER = process.env.WMATA_API_KEY || 'e13626d03d8e4c03ac07f95541b3091b';
 var BEERME = process.env.BEERME || false;
 var RAINBOW = process.env.RAINBOW || false;
+var PUPPIES = process.env.PUPPIES || false;
 console.log("using WMATA API Key - " + API_KEY_PLACEHOLDER);
 if (BEERME == 'true') { console.log("Beer Me! "); }
 if (RAINBOW == 'true') { console.log("Rainbows! "); }
-
+if (PUPPIES == 'true') { console.log("Puppies! ")}
 // var DCBEER = {
 //     type: "FeatureCollection",
 //     features: [{
@@ -76,7 +77,7 @@ router.get('/busses.json', function(req, res, next) {
     headers : { api_key: API_KEY_PLACEHOLDER }
   }).on('complete', function(data) {
     //console.log("GET on " + WMATA_URL + " data out:");
-    //console.log(data); // auto convert to object 
+    //console.log(data); // auto convert to object
 
     // TODO error handling of "statusCode: 401"
     // TODO error handling for valid geo JSON
